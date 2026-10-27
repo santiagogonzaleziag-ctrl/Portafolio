@@ -169,6 +169,10 @@ section.about{padding-block:80px 32px}
 .cols li{padding-block:8px;border-bottom:1px solid var(--line);font-size:15px}
 .cols li small{display:block;color:var(--muted);font-size:13px}
 
+.me{display:flex;gap:28px;align-items:flex-end}
+.me img{width:160px;height:auto;flex:none;border-radius:2px;border:1px solid var(--line)}
+@media (max-width:480px){.me{flex-direction:column;align-items:flex-start}.me img{width:140px}}
+
 /* contact */
 footer{margin-top:80px;background:var(--accent);color:var(--accent-ink)}
 footer .wrap{padding-block:56px 32px}
@@ -526,7 +530,7 @@ footer .btn:hover{background:var(--accent-ink);color:var(--accent)}
       <p class="label">Sobre mí</p>
       <div class="about-grid">
         <div>
-          <h2>Entre la idea y la herramienta</h2>
+          <div class="me"><img src="img/santiago.jpg" alt="Retrato de Santiago González" width="640" height="800" loading="lazy"><h2>Entre la idea y la herramienta</h2></div>
           <p style="margin-top:24px">Estudio Publicidad y Marketing Digital en la Universidad Loyola, en Sevilla. Antes empecé International Marketing and Business Analytics en la Universidad del Valle de Guatemala, y de ahí me viene el gusto por medir lo que hago.</p>
           <p>Me interesan los proyectos donde la estrategia, el diseño y la tecnología tienen que funcionar juntos: una campaña con una landing que capta de verdad, o una identidad que aguanta igual en un cartel que en una pantalla.</p>
         </div>
