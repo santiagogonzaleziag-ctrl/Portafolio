@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Santiago González’s portfolio: advertising, design and digital product.">
+<title>Santiago González</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: agency case-board — wide-set display type, each project = image + spec sheet (rol, equipo, stack) */
+:root{
+  --paper:#F1F2F5; --surface:#FFFFFF; --ink:#111318; --muted:#5B606C; --line:#D5D8E0;
+  --accent:#2F2BFF; --accent-ink:#FFFFFF;
+  --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1014; --surface:#181A20; --ink:#ECEDF1; --muted:#9A9FAD; --line:#2A2D36;
+  --accent:#8A87FF; --accent-ink:#0F1014; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1014; --surface:#181A20; --ink:#ECEDF1; --muted:#9A9FAD; --line:#2A2D36;
+  --accent:#8A87FF; --accent-ink:#0F1014; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--paper)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font-family:var(--display);font-weight:800;font-stretch:125%;font-size:15px;letter-spacing:.01em;text-decoration:none;text-transform:uppercase}
+.mark span{color:var(--accent)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14px;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:52px 40px}
+.hero .label{margin-bottom:22px;display:flex;gap:10px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+.hero h1{font-weight:900;font-stretch:125%;font-size:clamp(36px,6.4vw,88px);line-height:.88;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 .thin{font-weight:300;font-stretch:62%;letter-spacing:0;color:var(--accent)}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;margin-top:30px;align-items:end}
+.lede{font-size:clamp(16px,1.5vw,19px);line-height:1.45;max-width:40ch;margin:0}
+.disc{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;border:1px solid var(--line);padding:7px 11px;border-radius:999px;color:var(--ink);background:var(--surface)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;font-weight:600;font-size:14px;text-decoration:none;border:1.5px solid var(--ink);border-radius:2px;transition:background .2s,color .2s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* index */
+.index{border-top:1.5px solid var(--ink);margin-top:8px}
+.index a{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.4fr) auto;gap:20px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--line);text-decoration:none}
+.index a:hover .iname{color:var(--accent)}
+.iname{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(18px,2vw,24px);line-height:1.05;text-transform:uppercase;transition:color .2s}
+.idesc{color:var(--muted);font-size:15px}
+.iyear{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* case studies */
+section.case{padding-block:72px 16px;scroll-margin-top:60px}
+.case-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:28px}
+.case h2{font-weight:900;font-stretch:125%;font-size:clamp(28px,4.4vw,56px);line-height:.95;letter-spacing:-.015em;text-transform:uppercase}
+.case .kicker{font-size:clamp(16px,1.4vw,18px);max-width:46ch;margin:10px 0 0;line-height:1.45}
+.live{white-space:nowrap}
+.hero-img{display:block;width:auto;max-width:min(100%,960px);max-height:62vh;height:auto;margin:0 auto;border-radius:2px}
+.body-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:56px;margin-top:40px}
+.spec{border-top:1.5px solid var(--ink);align-self:start}
+.spec div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding-block:11px;border-bottom:1px solid var(--line);font-size:14.5px}
+.spec dt{margin:0}
+.spec dd{margin:0;font-weight:500}
+.prose{max-width:62ch;min-width:0}
+.prose h3{font-weight:800;font-stretch:110%;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px;color:var(--accent)}
+.prose p{margin:0 0 26px}
+.quote{font-family:var(--display);font-weight:600;font-stretch:90%;font-size:clamp(19px,1.9vw,23px);line-height:1.2;border-left:3px solid var(--accent);padding-left:20px;margin:6px 0 32px}
+
+/* system flow */
+.flow{margin-top:56px}
+.flow ol{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1.5px solid var(--ink);background:var(--surface)}
+.flow li{padding:18px 16px;border-right:1px solid var(--line);position:relative;min-width:0}
+.flow li:last-child{border-right:0}
+.flow .tool{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.flow strong{display:block;font-size:15px;line-height:1.3;margin-bottom:4px}
+.flow span.d{font-size:13.5px;color:var(--muted);line-height:1.4;display:block}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:18px;background:var(--surface);color:var(--ink);font-size:14px;line-height:1;padding:2px 0;z-index:1}
+
+/* proof */
+.proof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:20px;margin-top:56px;align-items:start}
+.proof figure{margin:0;min-width:0}
+.proof img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:2px}
+.proof figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.proof-text{min-width:0;border-top:1.5px solid var(--ink);padding-top:14px}
+.proof-num{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(44px,5.5vw,72px);line-height:.9;color:var(--accent);margin:14px 0 8px;font-variant-numeric:tabular-nums}
+.proof-text p{margin:0 0 14px;font-size:15.5px}
+.proof-text .note{font-size:13px;color:var(--muted)}
+
+/* observatorio blocks */
+.sw{display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:-3px;border:1px solid var(--line)}
+.block{margin-top:56px}
+.block-title{font-weight:800;font-stretch:110%;font-size:clamp(19px,2vw,24px);line-height:1.1;margin:8px 0 20px;max-width:28ch}
+.strip{display:grid;gap:12px;max-width:960px;margin-inline:auto}
+.strip img{width:100%;height:auto;display:block;border-radius:2px}
+.strip.s6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.strip.s4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.strip.tall{margin-top:12px}
+
+.g-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.web-note{max-width:62ch;margin:28px 0 0}
+
+.posters{display:flex;gap:14px;max-width:960px;margin:0 auto;align-items:flex-start}
+.posters img{min-width:0;width:0;height:auto;display:block;border-radius:2px}
+
+.lang{font-family:var(--mono);font-size:12px!important;letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+/* galleries */
+.gallery{display:grid;gap:16px;margin:48px auto 0;max-width:960px;align-items:start}
+.gallery figure{margin:0;min-width:0}
+.gallery img{width:100%;height:auto;display:block;border-radius:2px}
+.gallery figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.03em}
+.g-es{grid-template-columns:repeat(12,minmax(0,1fr))}
+.g-es .a{grid-column:span 7}.g-es .b{grid-column:span 5}
+.g-es .c{grid-column:span 4}.g-es .d{grid-column:span 4}.g-es .e{grid-column:span 4}
+
+.g-of{grid-template-columns:repeat(12,minmax(0,1fr))}
+.g-of .a{grid-column:span 12}.g-of .b{grid-column:span 6}.g-of .c{grid-column:span 6}.g-of .d{grid-column:span 12}
+
+
+/* observatorio mock — reproduces the project's own palette */
+.obs{background:#0B0B0F;color:#F2F2EE;border-radius:2px;overflow:hidden;position:relative;padding:clamp(20px,4vw,44px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;min-height:420px}
+.obs-top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B9B9C4}
+.obs-top b{display:inline-flex;align-items:center;gap:8px;color:#F2F2EE}
+.obs-top b i{width:18px;height:18px;background:#D7FF3A;display:inline-block}
+.obs-pills{display:flex;gap:8px;flex-wrap:wrap}
+.obs-pills span{border:1px solid #3A3A46;padding:5px 10px;border-radius:999px}
+.obs h4{font-family:var(--display);font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(30px,5vw,62px);line-height:.88;margin:0;letter-spacing:-.02em}
+.obs h4 .v{color:#7068FF;display:block;padding-left:.4em}
+.obs h4 .w{display:block;padding-left:.12em}
+.obs-side{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-width:0}
+.obs-net{position:relative;height:180px}
+.obs-net svg{width:100%;height:100%}
+.obs-btn{align-self:flex-start;background:#D7FF3A;color:#0B0B0F;padding:14px 18px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;border-left:6px solid #7068FF}
+.obs-ticker{grid-column:1/-1;background:#D7FF3A;color:#0B0B0F;margin:0 calc(-1*clamp(20px,4vw,44px)) calc(-1*clamp(20px,4vw,44px));padding:10px 0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:14px;white-space:nowrap;overflow:hidden}
+.obs-ticker span{display:inline-block;padding-left:100%;animation:tick 22s linear infinite}
+@keyframes tick{to{transform:translateX(-100%)}}
+.chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.chapters div{background:var(--surface);border:1px solid var(--line);padding:16px;min-width:0}
+.chapters .t{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.chapters p{margin:8px 0 0;font-weight:600;font-size:15px;line-height:1.3}
+
+/* about */
+section.about{padding-block:80px 32px}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;margin-top:32px}
+.about h2{font-weight:900;font-stretch:100%;font-size:clamp(28px,3.6vw,46px);line-height:1;text-transform:uppercase;overflow-wrap:break-word;max-width:16ch}
+.about-grid>div{min-width:0}
+.case h2,.hero h1{overflow-wrap:break-word}
+.about p{margin:0 0 18px;max-width:58ch}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.cols>div{min-width:0}
+@media (max-width:1100px){.cols{grid-template-columns:minmax(0,1fr)}}
+.cols ul{list-style:none;padding:0;margin:10px 0 0}
+.cols li{padding-block:8px;border-bottom:1px solid var(--line);font-size:15px}
+.cols li small{display:block;color:var(--muted);font-size:13px}
+
+.me{display:flex;gap:28px;align-items:flex-end}
+.me img{width:160px;height:auto;flex:none;border-radius:2px;border:1px solid var(--line)}
+@media (max-width:480px){.me{flex-direction:column;align-items:flex-start}.me img{width:140px}}
+
+/* contact */
+footer{margin-top:80px;background:var(--accent);color:var(--accent-ink)}
+footer .wrap{padding-block:56px 32px}
+footer .label{color:inherit;opacity:.8}
+.mail{font-family:var(--display);font-weight:800;font-stretch:100%;font-size:clamp(20px,3.2vw,38px);line-height:1;margin:16px 0 28px;word-break:break-word;user-select:all}
+.foot-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+footer .btn{border-color:var(--accent-ink);color:var(--accent-ink)}
+footer .btn:hover{background:var(--accent-ink);color:var(--accent)}
+.copied{font-family:var(--mono);font-size:13px}
+.fine{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:64px;padding-top:18px;border-top:1px solid color-mix(in srgb,var(--accent-ink) 35%,transparent);font-family:var(--mono);font-size:12px;opacity:.85}
+
+@media (max-width:860px){
+  .hero-foot,.body-grid,.about-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .disc{justify-content:flex-start}
+  .index a{grid-template-columns:minmax(0,1fr) auto}
+  .idesc{grid-column:1/-1;grid-row:2}
+  .case-head{grid-template-columns:minmax(0,1fr)}
+  .flow ol{grid-template-columns:minmax(0,1fr)}
+  .flow li{border-right:0;border-bottom:1px solid var(--line)}
+  .flow li:last-child{border-bottom:0}
+  .flow li:not(:last-child)::after{content:"↓";right:auto;left:16px;top:auto;bottom:-10px}
+  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .posters{gap:8px}
+  .proof-text{grid-column:1/-1}
+  .g-es .a,.g-es .b,.g-of .b,.g-of .c{grid-column:span 12}
+  .g-es .c,.g-es .d,.g-es .e{grid-column:span 12}
+  .obs{grid-template-columns:minmax(0,1fr)}
+  .obs-net{height:120px}
+  .chapters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip.s6{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .strip.s4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-two{grid-template-columns:minmax(0,1fr)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  nav{gap:14px}
+}
+@media (max-width:480px){nav a.hide-s{display:none}}
+@media (prefers-reduced-motion:reduce){.obs-ticker span{animation:none;padding-left:0}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#inicio">Santiago<span>.</span>G</a>
+    <nav aria-label="Sections">
+      <a href="#proyectos">Projects</a>
+      <a href="#sobre-mi" class="hide-s">About</a>
+      <a href="#contacto">Contact</a>
+      <a class="lang" href="../" lang="es" hreflang="es">ES</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <p class="label"><i class="dot" aria-hidden="true"></i> Seville, Spain</p>
+      <h1>Santiago<br>González <span class="thin">Portfolio</span></h1>
+      <div class="hero-foot">
+        <div>
+          <p class="lede">Advertising, design and digital product. I work across strategy, visual direction and the tools that make a campaign actually work.</p>
+          <div class="cta">
+            <a class="btn primary" href="#proyectos">View projects ↓</a>
+            <a class="btn" href="https://www.linkedin.com/in/santiago-gonz%C3%A1lez-7a600423b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="disc" aria-label="Disciplines">
+          <span class="chip">Digital campaigns</span>
+          <span class="chip">Paid media</span>
+          <span class="chip">Visual identity</span>
+          <span class="chip">Web design</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Supabase</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" id="proyectos">
+    <p class="label">Selected projects</p>
+    <div class="index">
+      <a href="#esenzia"><span class="iname">Esenzia Club</span><span class="idesc">Digital campaign and landing page with automated lead capture</span><span class="iyear">2026</span></a>
+      <a href="#observatorio"><span class="iname">Observatory</span><span class="idesc">Identity, social media and web against misinformation</span><span class="iyear">2026</span></a>
+      <a href="#ffacsa"><span class="iname">FFACSA Builders</span><span class="idesc">Campaign honouring Guatemalan construction workers</span><span class="iyear">2026</span></a>
+      <a href="#offf"><span class="iname">OFFF Sevilla ’26</span><span class="idesc">Visual identity for a digital creativity festival</span><span class="iyear">2025/26</span></a>
+    </div>
+  </div>
+
+  <!-- ESENZIA -->
+  <section class="case" id="esenzia">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <p class="label">Digital Advertising · Individual project</p>
+          <h2>Esenzia Club</h2>
+          <p class="kicker">A campaign that doesn’t try to please everyone, connected to a landing page that captures, stores and replies to every lead on its own.</p>
+        </div>
+        <a class="btn primary live" href="https://roof-slept-96159707.figma.site" target="_blank" rel="noopener">View the landing page ↗</a>
+      </div>
+      <img class="hero-img" src="../img/esenzia-banner.jpg" alt="Esenzia banner on the El Mundo homepage with the copy “Not everyone gets it. Maybe you do” and a “Find out” button" width="1600" height="953">
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">My role</dt><dd>Strategy, media, design and development</dd></div>
+          <div><dt class="label">Brand</dt><dd>Esenzia, Seville streetwear label</dd></div>
+          <div><dt class="label">Channels</dt><dd>Social Ads, Display, SEM, Email</dd></div>
+          <div><dt class="label">Stack</dt><dd>Figma Make, React, Supabase, Resend, GA4</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Challenge</h3>
+          <p>Esenzia competes in a crowded streetwear market against brands like Nude Project and Scuffers. The goal: position it among young people and grow lead generation within six months.</p>
+          <h3>Insight</h3>
+          <p class="quote">“The harder a brand tries to please everyone, the less special it makes me feel. I’d rather be chosen than sold to.”</p>
+          <h3>Idea</h3>
+          <p>“It’s not for you.” Instead of persuading, the campaign invites you to prove you belong. The copy (“Get in if you fit”, “Only some people get it”) leads to a landing page where signing up is how you join the club.</p>
+          <h3>What I did</h3>
+          <p>The whole project, from strategy to execution. I defined the channels and the media strategy: Reels and Stories for reach, Lead Ads and SEM for acquisition, display for remarketing, and the KPIs for each (CTR, CPC, CPA, conversion and open rates).</p>
+          <p>Then I designed the campaign assets, the landing page and the welcome email, and built the lead capture system with Supabase, Resend and Google Analytics.</p>
+        </div>
+      </div>
+
+      <div class="flow">
+        <p class="label">How the lead capture system works</p>
+        <ol>
+          <li><span class="tool">Instagram · Google</span><strong>Sees the ad</strong><span class="d">Story, banner or search</span></li>
+          <li><span class="tool">Landing</span><strong>Signs up</strong><span class="d">Name, email and phone</span></li>
+          <li><span class="tool">Supabase</span><strong>Lead is stored</strong><span class="d">Database and Edge Function</span></li>
+          <li><span class="tool">Resend</span><strong>Gets their code</strong><span class="d">Automated email with ESENZIA10</span></li>
+          <li><span class="tool">GA4</span><strong>It’s measured</strong><span class="d">generate_lead event and conversion</span></li>
+        </ol>
+      </div>
+
+      <div class="proof">
+        <div class="proof-text">
+          <p class="label">Working, not just designed</p>
+          <p class="proof-num">28</p>
+          <p>test sign-ups stored in Supabase during development, each one sent its welcome email automatically.</p>
+          <p class="note">Personal data hidden. Email sending runs in a test environment, pending a verified domain.</p>
+        </div>
+        <figure><img src="../img/esenzia-email-real.jpg" alt="Real email received after signing up: Esenzia Club welcome with the ESENZIA10 code" loading="lazy"><figcaption>Email received after signing up</figcaption></figure>
+        <figure><img src="../img/esenzia-supabase.jpg" alt="Supabase leads table with 28 records and personal data blurred" loading="lazy"><figcaption>Leads in Supabase</figcaption></figure>
+      </div>
+
+      <div class="gallery g-es">
+        <figure class="a"><img src="../img/esenzia-email.jpg" alt="Esenzia Club welcome email with the ESENZIA10 code, on desktop and mobile" loading="lazy"><figcaption>Automated welcome email</figcaption></figure>
+        <figure class="b"><img src="../img/esenzia-concept.jpg" alt="Model in an Esenzia hoodie surrounded by phones taking her picture" loading="lazy"><figcaption>“It’s not for you” concept</figcaption></figure>
+        <figure class="c"><img src="../img/esenzia-story1.jpg" alt="Esenzia ad in the Instagram feed" loading="lazy"><figcaption>Social Ads · Feed</figcaption></figure>
+        <figure class="d"><img src="../img/esenzia-story2.jpg" alt="Instagram Story with a “Find out if it’s for you” button" loading="lazy"><figcaption>Social Ads · Story</figcaption></figure>
+        <figure class="e"><img src="../img/esenzia-insight.jpg" alt="Model in a striped Esenzia Club sweater" loading="lazy"><figcaption>Art direction</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBSERVATORIO -->
+  <section class="case" id="observatorio">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <p class="label">Branding and communication · University project</p>
+          <h2>Observatory</h2>
+          <p class="kicker">Identity, social media and website for an observatory that teaches people to read digital narratives before believing or sharing them.</p>
+        </div>
+        <a class="btn primary live" href="https://blimp-laud-09888806.figma.site" target="_blank" rel="noopener">View the website ↗</a>
+      </div>
+      <img class="hero-img" src="../img/obs/mat-01.jpg" alt="Digital Narratives Observatory logo built from geometric shapes in orange, blue and lime on a dark background" width="1600" height="900">
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Brief</dt><dd>Brief #1, Universidad Loyola</dd></div>
+          <div><dt class="label">Deliverables</dt><dd>Identity, carousel, stories, social profile and website</dd></div>
+          <div><dt class="label">Typeface</dt><dd>Satoshi</dd></div>
+          <div><dt class="label">Color</dt><dd><span class="sw" style="--c:#f0603a"></span><span class="sw" style="--c:#6c78b9"></span><span class="sw" style="--c:#d1dc26"></span></dd></div>
+          <div><dt class="label">Tools</dt><dd>Figma, Figma Make, Canva</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>The question</h3>
+          <p>Where is the truth? The observatory exists to encourage critical thinking: analysing campaigns and social media narratives, exposing misinformation and explaining how algorithms shape what we see.</p>
+          <h3>Concept</h3>
+          <p class="quote">Not everything is what it seems.</p>
+          <p>Two overlapping circles sum up the idea: the truth lies in the intersection, and you have to cross-check before you share. Every piece closes with the same line: “Question. Cross-check. Analyse.”</p>
+          <h3>Visual system</h3>
+          <p>A logo made of geometric pieces that fit together like a puzzle and change colour. Satoshi for strong contrasts in hierarchy, and three colours (orange, blue and lime) that work as highlights and as a code between sections.</p>
+        </div>
+      </div>
+
+      <div class="gallery g-two">
+        <figure><img src="../img/obs/mat-05.jpg" alt="Three colour variants of the Observatory symbol" loading="lazy"><figcaption>Symbol variants</figcaption></figure>
+        <figure><img src="../img/obs/mat-03.jpg" alt="Satoshi type specimen with its weights, from Light to Black" loading="lazy"><figcaption>Satoshi typeface</figcaption></figure>
+      </div>
+
+      <div class="block">
+        <p class="label">Campaign pieces</p>
+        <h3 class="block-title">An identity that adapts to every message</h3>
+        <div class="gallery g-two" style="margin-top:0">
+          <figure><img src="../img/obs/mat-02.jpg" alt="“Think beyond the feed” piece in lilac and white on grey" loading="lazy"><figcaption>Main claim: “Think beyond the feed”</figcaption></figure>
+          <figure><img src="../img/obs/mat-06.jpg" alt="Metro billboard asking “Are they showing you what you want to see? Or is it the other way round?”" loading="lazy"><figcaption>Outdoor · Metro billboard</figcaption></figure>
+          <figure><img src="../img/obs/mat-04.jpg" alt="Typographic piece: networks, filters, algorithms, information, with a grid of colour blocks" loading="lazy"><figcaption>Networks, filters, algorithms</figcaption></figure>
+          <figure><img src="../img/obs/mat-10.jpg" alt="Two overlapping circles with the question of where the truth is" loading="lazy"><figcaption>Where is the truth?</figcaption></figure>
+          <figure><img src="../img/obs/mat-08.jpg" alt="Black-and-white photo of people crossing a street with the headline “Positive networks”" loading="lazy"><figcaption>Positive networks</figcaption></figure>
+          <figure><img src="../img/obs/mat-09.jpg" alt="“Perspective” piece with connected colour shapes on lilac" loading="lazy"><figcaption>Perspective</figcaption></figure>
+          <figure><img src="../img/obs/mat-07.jpg" alt="Black-and-white cinema audience with some silhouettes highlighted in lime" loading="lazy"><figcaption>Photographic art direction</figcaption></figure>
+          <figure><img src="../img/obs/mat-11.jpg" alt="“How do you see it?” piece with a couple looking at a phone" loading="lazy"><figcaption>How do you see it?</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Launch carousel · Instagram</p>
+        <h3 class="block-title">5 reasons a scientist would never be a flat-earther</h3>
+        <div class="strip s6">
+          <img src="../img/obs/car-01.jpg" alt="Carousel cover: 5 reasons a scientist would never be a flat-earther" loading="lazy">
+          <img src="../img/obs/car-02.jpg" alt="Reason 1: you can see the Earth from space" loading="lazy">
+          <img src="../img/obs/car-03.jpg" alt="Reason 2: lunar eclipses" loading="lazy">
+          <img src="../img/obs/car-04.jpg" alt="Reason 3: ships disappear over the horizon" loading="lazy">
+          <img src="../img/obs/car-05.jpg" alt="Reason 4: satellites orbit the Earth" loading="lazy">
+          <img src="../img/obs/car-06.jpg" alt="Reason 5: it isn’t daytime everywhere at once" loading="lazy">
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">“Narratives in sight” series · Instagram and TikTok</p>
+        <h3 class="block-title">Every week, one digital narrative under the magnifying glass</h3>
+        <div class="strip s4">
+          <img src="../img/obs/mockup-perfil.jpg" alt="Mockup of the Observatory’s Instagram profile" loading="lazy">
+          <img src="../img/obs/mockup-feed.jpg" alt="Mockup of a post about the tradwife narrative" loading="lazy">
+          <img src="../img/obs/mockup-story.jpg" alt="Mockup of a Story asking “What is a tradwife?”" loading="lazy">
+          <img src="../img/obs/mockup-tiktok.jpg" alt="TikTok mockup about the easy-money narrative" loading="lazy">
+        </div>
+        <div class="strip s6 tall">
+          <img src="../img/obs/story-pregunta.jpg" alt="Story asking about Sephora Kids videos" loading="lazy">
+          <img src="../img/obs/story-quiz.jpg" alt="Quiz Story: what is a tradwife?" loading="lazy">
+          <img src="../img/obs/story-encuesta.jpg" alt="Poll Story: you choose which narrative we analyse" loading="lazy">
+          <img src="../img/obs/story-glosario.jpg" alt="Glossary Story: definition of a digital narrative" loading="lazy">
+          <img src="../img/obs/story-serie.jpg" alt="Story introducing the Narratives in sight series" loading="lazy">
+          <img src="../img/obs/story-slider.jpg" alt="Slider Story: how much what you see online influences what you buy" loading="lazy">
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">The website</p>
+        <h3 class="block-title">Think beyond the feed</h3>
+      <div class="obs" role="img" aria-label="Recreation of the Digital Narratives Observatory homepage: the headline “Think beyond the feed” in white and violet on black, with a lime “Enter the radar” button">
+        <div class="obs-top">
+          <b><i aria-hidden="true"></i>Observatorio de narrativas digitales</b>
+          <div class="obs-pills"><span>Manifiesto</span><span>Radar</span><span>Participa</span></div>
+        </div>
+        <h4><span class="w">Piensa</span><span class="v">más allá</span><span class="w">del feed</span></h4>
+        <div class="obs-side">
+          <div class="obs-net" aria-hidden="true">
+            <svg viewBox="0 0 300 180" fill="none">
+              <g stroke="#F2F2EE" stroke-opacity=".45" stroke-width="1">
+                <path d="M20 30 L110 60 L200 18 L285 70 L240 150 L120 170 L40 120 Z M110 60 L240 150 M200 18 L120 170 M40 120 L285 70"/>
+              </g>
+              <circle cx="110" cy="60" r="9" fill="#FF5A3C"/>
+              <circle cx="200" cy="18" r="6" fill="#D7FF3A"/>
+              <circle cx="285" cy="70" r="7" fill="#D7FF3A"/>
+              <circle cx="240" cy="150" r="10" fill="#7068FF"/>
+              <circle cx="40" cy="120" r="7" fill="#F2F2EE"/>
+              <circle cx="120" cy="170" r="5" fill="#D7FF3A"/>
+              <circle cx="20" cy="30" r="5" fill="#F2F2EE"/>
+            </svg>
+          </div>
+          <span class="obs-btn">[ Empezar ] Entrar al radar ↘</span>
+        </div>
+        <div class="obs-ticker" aria-hidden="true"><span>Pasa del feed ◆ Cuestiona el algoritmo ◆ Pasa del feed ◆ Cuestiona el algoritmo ◆ Pasa del feed ◆ Cuestiona el algoritmo ◆</span></div>
+      </div>
+
+        <p class="web-note">Homepage, real-time signals, manifesto, narratives in orbit and a lab with four themes you can filter by tab:</p>
+      <div class="chapters">
+        <div><span class="t">Science outreach</span><p>Science is competing for your attention too</p></div>
+        <div><span class="t">Pseudoscience</span><p>When viral doesn’t mean true</p></div>
+        <div><span class="t">Stereotypes</span><p>Who gets left out of the frame?</p></div>
+        <div><span class="t">Common good</span><p>Networks that connect to create change</p></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FFACSA -->
+  <section class="case" id="ffacsa">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <p class="label">Communication proposal · Individual project</p>
+          <h2>FFACSA Builders</h2>
+          <p class="kicker">A campaign for the Guatemalan hardware store chain that puts the real nation-builders at the centre: construction workers.</p>
+        </div>
+      </div>
+      <div class="posters">
+        <img style="flex:585" src="../img/ffacsa/p-construir.jpg" alt="Vertical poster: “Building Guatemala’s future with hard work”, a construction worker in profile wearing an FFACSA hard hat" loading="lazy">
+        <img style="flex:666" src="../img/ffacsa/p-fuerza.jpg" alt="Poster: “The force that moves the country”, a portrait of a construction worker looking up" loading="lazy">
+        <img style="flex:666" src="../img/ffacsa/p-levantan.jpg" alt="Poster: “They build trust, progress and dreams”, a portrait of a construction worker looking up" loading="lazy">
+      </div>
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Brand</dt><dd>FFACSA, Guatemalan hardware stores</dd></div>
+          <div><dt class="label">Audience</dt><dd>Site foremen and construction workers</dd></div>
+          <div><dt class="label">Pieces</dt><dd>Vertical posters and horizontal banner</dd></div>
+          <div><dt class="label">Hashtag</dt><dd>#FfacsaAlbañiles2026</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Context</h3>
+          <p>FFACSA already ran its own programme, FFACSA Albañiles, which celebrates Builders’ Day every year. Construction employs 1.2 million people in Guatemala and accounts for 8.5% of GDP, yet big brands usually talk to architects and engineers, not to the people doing the work.</p>
+          <h3>Insight</h3>
+          <p class="quote">Their work is physical, hard and often invisible, but they do it with pride: with their hands they carry the progress of their families and their country.</p>
+          <h3>Idea</h3>
+          <p>“Behind every building, every home and every road, there are hands that made it possible.” Black-and-white portraits looking upward, with the brand’s yellow and red. The headlines treat them as heroes: “The force that moves the country”, “They build trust, progress and dreams”. Original copy in Spanish.</p>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure><img src="../img/ffacsa/banner.jpg" alt="Horizontal banner: “Building Guatemala’s future with hard work” next to a portrait of a construction worker" loading="lazy"><figcaption>Horizontal banner</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFF -->
+  <section class="case" id="offf">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <p class="label">Graphic Design · Individual project</p>
+          <h2>OFFF Sevilla ’26</h2>
+          <p class="kicker">Identity proposal for an edition of the festival at Seville’s Real Fábrica de Artillería: digital energy in an industrial space.</p>
+        </div>
+      </div>
+      <img class="hero-img" src="../img/offf-logo.jpg" alt="Glowing pink OFFF logo in italics with stencil cuts, next to “Sevilla ’26, Real Fábrica de Artillería, 27.11–29.11”" width="1800" height="543" loading="lazy">
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Deliverables</dt><dd>Logo, typography and applications</dd></div>
+          <div><dt class="label">Typefaces</dt><dd>Bespoke Stencil, Clash Display</dd></div>
+          <div><dt class="label">Formats</dt><dd>Posters, stage</dd></div>
+          <div><dt class="label">Note</dt><dd>Unofficial academic proposal</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Concept</h3>
+          <p>OFFF celebrates digital creativity and visual experimentation. Seville brought the contrast: a former military building turned into a cultural hub. The identity brings both worlds together.</p>
+          <h3>Decisions</h3>
+          <p>The stencil cuts come from industrial signage; the italics add speed; the pink glow points to the screen. Clash Display, wide and bold, carries the practical information and reads well at large sizes, in the auditorium and on stage.</p>
+        </div>
+      </div>
+
+      <div class="gallery g-of">
+        <figure class="a"><img src="../img/offf-stage.jpg" alt="OFFF Sevilla identity projected on an auditorium stage in red light" loading="lazy"><figcaption>Stage application</figcaption></figure>
+        <figure class="b"><img src="../img/offf-poster-street.jpg" alt="OFFF Sevilla poster on a stone pillar next to a staircase" loading="lazy"><figcaption>Poster at the Real Fábrica de Artillería</figcaption></figure>
+        <figure class="c"><img src="../img/offf-poster.jpg" alt="Square OFFF Sevilla poster with the speaker line-up" loading="lazy"><figcaption>Speaker poster</figcaption></figure>
+        <figure class="d"><img src="../img/offf-type.jpg" alt="Bespoke Stencil type specimen with alphabet and logo" loading="lazy"><figcaption>Type system</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre-mi">
+    <div class="wrap">
+      <p class="label">About me</p>
+      <div class="about-grid">
+        <div>
+          <div class="me"><img src="../img/santiago.jpg" alt="Portrait of Santiago González" width="640" height="800" loading="lazy"></div>
+          <p style="margin-top:24px">I study Advertising and Digital Marketing at Universidad Loyola in Seville. Before that I started International Marketing and Business Analytics at Universidad del Valle de Guatemala, which is where my habit of measuring what I do comes from.</p>
+          <p>I’m drawn to projects where strategy, design and technology have to work together: a campaign with a landing page that actually converts, or an identity that holds up as well on a poster as on a screen.</p>
+        </div>
+        <div class="cols">
+          <div>
+            <p class="label">Education</p>
+            <ul>
+              <li>Advertising and Digital Marketing<small>Universidad Loyola · 2023 – present</small></li>
+              <li>International Marketing and Business Analytics<small>Universidad del Valle de Guatemala · 2023</small></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label">Tools</p>
+            <ul>
+              <li>Adobe Creative Cloud<small>Full suite</small></li>
+              <li>Microsoft Office<small>Full suite</small></li>
+              <li>Claude</li>
+              <li>Supabase</li>
+              <li>Resend</li>
+            </ul>
+            <p class="label" style="margin-top:22px">Languages</p>
+            <ul>
+              <li>Spanish<small>Native</small></li>
+              <li>English<small>C1</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <p class="label">Let’s talk</p>
+    <p class="mail" id="mail">santiagogonzalez.iag@gmail.com</p>
+    <div class="foot-row">
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/santiago-gonz%C3%A1lez-7a600423b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
+    <div class="fine"><span>Santiago González · Seville, Spain</span><span>Academic projects; the brands shown are not clients.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('copy'),out=document.getElementById('copied'),m=document.getElementById('mail');
+  b.addEventListener('click',function(){
+    var t=m.textContent.trim();
+    function sel(){var r=document.createRange();r.selectNodeContents(m);var s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Selected: copy with Ctrl/Cmd + C';}
+    try{navigator.clipboard.writeText(t).then(function(){out.textContent='Email copied';},sel);}catch(e){sel();}
+  });
+})();
+</script>
+
+</body>
+</html>
