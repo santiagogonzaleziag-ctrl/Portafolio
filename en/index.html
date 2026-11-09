@@ -13,7 +13,7 @@
 :root{
   --paper:#0B0C10; --surface:#14161C; --raise:#1B1E26; --ink:#EEF0F5; --muted:#9BA1AE; --line:#272B35;
   --accent:#8E89FF; --accent-ink:#0B0C10;
-  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B;
+  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF;
   --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -159,6 +159,14 @@ section.case{--c:var(--accent);padding-block:88px 16px;scroll-margin-top:60px;po
 .posters img{min-width:0;width:0;height:auto;display:block;border-radius:6px;transition:transform .6s var(--ease)}
 .posters img:hover{transform:translateY(-8px)}
 
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:48px}
+.stats>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0;transition:border-color .3s,transform .4s var(--ease)}
+.stats>div:hover{border-color:var(--c);transform:translateY(-4px)}
+.stats .n{display:block;font-family:var(--display);font-weight:900;font-stretch:115%;font-size:clamp(26px,2.6vw,34px);line-height:1;color:var(--c);font-variant-numeric:tabular-nums;margin-bottom:10px}
+.stats .n small{font-size:.5em;font-weight:600;color:var(--muted);font-stretch:100%}
+.stats p{margin:0;font-size:14px;color:color-mix(in srgb,var(--ink) 85%,var(--muted));line-height:1.45}
+#brio{--c:var(--c-brio)}
+.index a[href="#brio"]{--c:var(--c-brio)}
 .lang{font-family:var(--mono);font-size:12px!important;letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;border-radius:999px}
 /* galleries */
 .gallery{display:grid;gap:16px;margin:48px auto 0;max-width:960px;align-items:start}
@@ -252,6 +260,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
   .obs{grid-template-columns:minmax(0,1fr)}
   .obs-net{height:120px}
   .chapters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .strip.s6{grid-template-columns:repeat(3,minmax(0,1fr))}
   .strip.s4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .shape{top:-30px;opacity:.4}
@@ -313,6 +322,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
     <p class="label">Selected projects</p>
     <div class="index">
       <a href="#esenzia" data-img="../img/esenzia-concept.jpg"><span class="iname">Esenzia Club</span><span class="idesc">Digital campaign and landing page with automated lead capture</span><span class="iyear">2026</span></a>
+      <a href="#brio" data-img="../img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Data analysis and media plan for a sports ecommerce brand</span><span class="iyear">2026</span></a>
       <a href="#ad3ntro" data-img="../img/ad3ntro/g11.jpg"><span class="iname">Ad3ntro</span><span class="idesc">Brand, naming and communication for a boutique gym</span><span class="iyear">2026</span></a>
       <a href="#observatorio" data-img="../img/obs/mat-01.jpg"><span class="iname">Observatory</span><span class="idesc">Identity, social media and web against misinformation</span><span class="iyear">2026</span></a>
       <a href="#ffacsa" data-img="../img/ffacsa/p-fuerza.jpg"><span class="iname">FFACSA Builders</span><span class="idesc">Campaign honouring Guatemalan construction workers</span><span class="iyear">2026</span></a>
@@ -382,6 +392,65 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure class="c"><img src="../img/esenzia-story1.jpg" alt="Esenzia ad in the Instagram feed" loading="lazy"><figcaption>Social Ads · Feed</figcaption></figure>
         <figure class="d"><img src="../img/esenzia-story2.jpg" alt="Instagram Story with a “Find out if it’s for you” button" loading="lazy"><figcaption>Social Ads · Story</figcaption></figure>
         <figure class="e"><img src="../img/esenzia-insight.jpg" alt="Model in a striped Esenzia Club sweater" loading="lazy"><figcaption>Art direction</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIO -->
+  <section class="case" id="brio">
+    <div class="wrap">
+      <div class="case-head">
+        <div class="shape" aria-hidden="true"></div>
+        <div>
+          <p class="label">Data analysis and media planning · Personal project</p>
+          <h2>Brío Sport</h2>
+          <p class="kicker">Volume vs. value. A sports ecommerce brand analysed end to end: from messy data to a dashboard, a media plan and a creative brief.</p>
+        </div>
+        <a class="btn primary live" href="https://public.tableau.com/app/profile/santiago.gonzalez.mendez/viz/BrioSport-Volumenvsvalor/Volumenvsvalor" target="_blank" rel="noopener">View dashboard ↗</a>
+      </div>
+      <img class="hero-img" src="../img/brio/s1.jpg" alt="Brío Sport case study cover: “Volume vs. value”, acquisition, conversion and retention in a sports ecommerce brand" width="1600" height="900">
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Tools</dt><dd>Power Query, Tableau, Excel</dd></div>
+          <div><dt class="label">Data</dt><dd>6 tables, 24 months (Oct 2024 – Sep 2026)</dd></div>
+          <div><dt class="label">Volume</dt><dd>7,206 orders · €799,706 in sales</dd></div>
+          <div><dt class="label">Deliverables</dt><dd>Data audit, dashboard, media plan and brief</dd></div>
+          <div><dt class="label">Note</dt><dd>Simulated brand and data</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>The question</h3>
+          <p>Is Brío Sport’s spend where the value is? Four areas: the cost of acquiring each customer by channel, where sales are lost on the website, who buys again, and which categories create costs after the sale.</p>
+          <h3>Process</h3>
+          <p>Five phases, each with its own tool. In Power Query I cleaned the six tables: duplicates, test orders, amounts stored as text, dates in three formats and unnormalised categories. In Tableau I built the model and the metrics (CAC, margin per customer, return per euro, repeat purchase) and corrected granularity and time-window biases. Every figure was reconciled against a control total before the analysis.</p>
+          <h3>Conclusion</h3>
+          <p class="quote">The growth is in volume, not in value.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div><span class="n">36% <small>vs. 67%</small></span><p>checkout completion on mobile versus desktop, with 80% of traffic on mobile.</p></div>
+        <div><span class="n">€2.9 <small>vs. €4.1</small></span><p>return per euro on Meta versus Google, even though Meta takes 43% of the spend.</p></div>
+        <div><span class="n">21–25% <small>vs. 54%</small></span><p>repeat purchase among Black Friday customers versus those acquired without a discount.</p></div>
+        <div><span class="n">16%</span><p>return rate on running shoes, which make up more than half of product sales.</p></div>
+      </div>
+
+      <div class="body-grid">
+        <div></div>
+        <div class="prose">
+          <h3>Recommendations</h3>
+          <p>Allocate spend by customer value, not volume: move 15–20% of the Meta budget to Google Ads and measure Meta’s real contribution with a geo test. Beyond media, prioritise the mobile checkout (express payment and guest checkout), a size guide, and swapping part of the heavy discounting for second-purchase incentives.</p>
+          <p>The analysis ends in a creative brief to win back the Black Friday shopper: “I’m not loyal to any brand, only to the discount. Until one gives me a reason to stay.”</p>
+        </div>
+      </div>
+
+      <div class="gallery g-two">
+        <figure><img src="../img/brio/s25.jpg" alt="Slide showing the Brío Sport dashboard published on Tableau Public" loading="lazy"><figcaption>Dashboard on Tableau Public</figcaption></figure>
+        <figure><img src="../img/brio/s8.jpg" alt="Data quality audit table with the issues found and how they were treated in Power Query" loading="lazy"><figcaption>Data quality audit</figcaption></figure>
+        <figure><img src="../img/brio/s15.jpg" alt="Mobile conversion finding: 80% mobile traffic and 36% vs. 67% checkout completion" loading="lazy"><figcaption>Finding: mobile conversion</figcaption></figure>
+        <figure><img src="../img/brio/s16.jpg" alt="Channel profitability table with spend, CAC, margin per customer and return per euro" loading="lazy"><figcaption>Finding: channel profitability</figcaption></figure>
+        <figure><img src="../img/brio/s23.jpg" alt="Creative brief insight: “I’m not loyal to any brand, only to the discount”" loading="lazy"><figcaption>Brief insight</figcaption></figure>
+        <figure><img src="../img/brio/s24.jpg" alt="Creative brief: from one-off purchase to repeat customer, with objective, audience, message and KPI" loading="lazy"><figcaption>Creative brief</figcaption></figure>
       </div>
     </div>
   </section>
@@ -756,7 +825,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
 
   /* reveal on scroll — only for elements that start below the fold */
   if(!reduce&&'IntersectionObserver' in window){
-    var els=document.querySelectorAll('.case-head,.hero-img,.posters,.body-grid,.flow,.proof,.gallery figure,.block,.strip img,.obs,.chapters div,.about-grid,.cols li');
+    var els=document.querySelectorAll('.case-head,.hero-img,.posters,.body-grid,.flow,.proof,.gallery figure,.block,.strip img,.obs,.chapters div,.stats>div,.about-grid,.cols li');
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);countUp(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
     var vh=innerHeight;
     els.forEach(function(el,i){el.classList.add('rv');if(el.getBoundingClientRect().top>vh){el.classList.add('pre');el.style.transitionDelay=((i%3)*70)+'ms';io.observe(el);}});
