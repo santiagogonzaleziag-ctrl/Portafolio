@@ -13,7 +13,7 @@
 :root{
   --paper:#0B0C10; --surface:#14161C; --raise:#1B1E26; --ink:#EEF0F5; --muted:#9BA1AE; --line:#272B35;
   --accent:#8E89FF; --accent-ink:#0B0C10;
-  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF;
+  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF; --c-mm:#FFE52B;
   --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -166,7 +166,9 @@ section.case{--c:var(--accent);padding-block:88px 16px;scroll-margin-top:60px;po
 .stats .n small{font-size:.5em;font-weight:600;color:var(--muted);font-stretch:100%}
 .stats p{margin:0;font-size:14px;color:color-mix(in srgb,var(--ink) 85%,var(--muted));line-height:1.45}
 #brio{--c:var(--c-brio)}
-.index a[href="#brio"]{--c:var(--c-brio)}
+.index a[href="#brio"]{--c:var(--c-brio)}.index a[href="#memento"]{--c:var(--c-mm)}#memento{--c:var(--c-mm)}
+.g-mm{grid-template-columns:repeat(12,minmax(0,1fr))}.g-mm .a{grid-column:span 12}.g-mm .b{grid-column:span 6}.g-mm .c,.g-mm .d{grid-column:span 3}
+@media (max-width:860px){.g-mm .b{grid-column:span 12}.g-mm .c,.g-mm .d{grid-column:span 6}}
 .lang{font-family:var(--mono);font-size:12px!important;letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;border-radius:999px}
 /* galleries */
 .gallery{display:grid;gap:16px;margin:48px auto 0;max-width:960px;align-items:start}
@@ -324,6 +326,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
       <a href="#esenzia" data-img="../img/esenzia-concept.jpg"><span class="iname">Esenzia Club</span><span class="idesc">Digital campaign and landing page with automated lead capture</span><span class="iyear">2026</span></a>
       <a href="#brio" data-img="../img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Data analysis and media plan for a sports ecommerce brand</span><span class="iyear">2026</span></a>
       <a href="#ad3ntro" data-img="../img/ad3ntro/g11.jpg"><span class="iname">Ad3ntro</span><span class="idesc">Brand, naming and communication for a boutique gym</span><span class="iyear">2026</span></a>
+      <a href="#memento" data-img="../img/mm/decirte.jpg"><span class="iname">Memento Mori</span><span class="idesc">Awareness campaign about attention and phones</span><span class="iyear">2026</span></a>
       <a href="#observatorio" data-img="../img/obs/mat-01.jpg"><span class="iname">Observatory</span><span class="idesc">Identity, social media and web against misinformation</span><span class="iyear">2026</span></a>
       <a href="#ffacsa" data-img="../img/ffacsa/p-fuerza.jpg"><span class="iname">FFACSA Builders</span><span class="idesc">Campaign honouring Guatemalan construction workers</span><span class="iyear">2026</span></a>
       <a href="#offf" data-img="../img/offf-logo.jpg"><span class="iname">OFFF Sevilla ’26</span><span class="idesc">Visual identity for a digital creativity festival</span><span class="iyear">2025/26</span></a>
@@ -503,6 +506,50 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
           <figure><img src="../img/ad3ntro/m22.jpg" alt="Before-and-after table: what any gym would say versus what Ad3ntro says" loading="lazy"><figcaption>Before and after</figcaption></figure>
           <figure><img src="../img/ad3ntro/m25.jpg" alt="Outdoor guideline “On the street, less is more” over the aerial view of the gym" loading="lazy"><figcaption>Rules for outdoor</figcaption></figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMENTO -->
+  <section class="case" id="memento">
+    <div class="wrap">
+      <div class="case-head">
+        <div class="shape" aria-hidden="true"></div>
+        <div>
+          <p class="label">Awareness campaign · Concept, copy and design</p>
+          <h2>Memento Mori</h2>
+          <p class="kicker">A campaign about attention for young people glued to their phones. No fear, no toxic positivity: a reminder that today is still yours.</p>
+        </div>
+      </div>
+      <div class="posters">
+        <img style="flex:1" src="../img/mm/verla.jpg" alt="“Today I’m going to see her with my own eyes” poster: a crowd photographing the Mona Lisa on their phones" loading="lazy">
+        <img style="flex:1" src="../img/mm/decirte.jpg" alt="“Today I’m going to tell you I love you again” poster: a man hugging an older woman, in black and white" loading="lazy">
+        <img style="flex:1" src="../img/mm/perder.jpg" alt="“Today I’m going to lose track of time” poster: a couple dancing at night on a lit street" loading="lazy">
+      </div>
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Topic</dt><dd>Attention and phone use</dd></div>
+          <div><dt class="label">Público</dt><dd>Young people aged 18 to 25</dd></div>
+          <div><dt class="label">Piezas</dt><dd>A series of five posters and outdoor adaptations</dd></div>
+          <div><dt class="label">My role</dt><dd>Concept, copy and art direction</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Context</h3>
+          <p>We touch our phones 2,617 times a day, and it takes 23 minutes to get our focus back after each interruption. Screens are designed so we never put them down.</p>
+          <h3>Insight</h3>
+          <p class="quote">It’s not your fault. But it is your life.</p>
+          <h3>Idea</h3>
+          <p>Memento mori: “Remember you will die. And that today is not that day.” The “Hoy voy a ___” (“Today I’m going to ___”) series turns the idea into a question for every day, with moments you can only live without a screen: seeing her with my own eyes, telling you I love you again, dancing in the kitchen, jumping with my friends. Every poster closes with the same question: “And you, what are you going to do today?”</p>
+        </div>
+      </div>
+
+      <div class="gallery g-mm">
+        <figure class="a"><img src="../img/mm/bus.jpg" alt="“Tell you I love you again” poster at a bus shelter" loading="lazy"><figcaption>Bus shelter</figcaption></figure>
+        <figure class="b"><img src="../img/mm/wall.jpg" alt="“See her with my own eyes” poster framed on a concrete wall" loading="lazy"><figcaption>Indoor poster</figcaption></figure>
+        <figure class="c"><img src="../img/mm/bailar.jpg" alt="“Today I’m going to dance in the kitchen” poster: a couple kissing in a kitchen" loading="lazy"><figcaption>Dance in the kitchen</figcaption></figure>
+        <figure class="d"><img src="../img/mm/saltar.jpg" alt="“Today I’m going to jump with my friends” poster: a group of boys jumping into the water from a pier" loading="lazy"><figcaption>Jump with my friends</figcaption></figure>
+        <figure class="a"><img src="../img/mm/persona.jpg" alt="Persona sheet: Lucía, 20, a business student in Seville who feels she is living on autopilot" loading="lazy"><figcaption>Persona: Lucía, 20</figcaption></figure>
       </div>
     </div>
   </section>

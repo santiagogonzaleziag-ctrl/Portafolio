@@ -13,7 +13,7 @@
 :root{
   --paper:#0B0C10; --surface:#14161C; --raise:#1B1E26; --ink:#EEF0F5; --muted:#9BA1AE; --line:#272B35;
   --accent:#8E89FF; --accent-ink:#0B0C10;
-  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF;
+  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF; --c-mm:#FFE52B;
   --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -166,7 +166,9 @@ section.case{--c:var(--accent);padding-block:88px 16px;scroll-margin-top:60px;po
 .stats .n small{font-size:.5em;font-weight:600;color:var(--muted);font-stretch:100%}
 .stats p{margin:0;font-size:14px;color:color-mix(in srgb,var(--ink) 85%,var(--muted));line-height:1.45}
 #brio{--c:var(--c-brio)}
-.index a[href="#brio"]{--c:var(--c-brio)}
+.index a[href="#brio"]{--c:var(--c-brio)}.index a[href="#memento"]{--c:var(--c-mm)}#memento{--c:var(--c-mm)}
+.g-mm{grid-template-columns:repeat(12,minmax(0,1fr))}.g-mm .a{grid-column:span 12}.g-mm .b{grid-column:span 6}.g-mm .c,.g-mm .d{grid-column:span 3}
+@media (max-width:860px){.g-mm .b{grid-column:span 12}.g-mm .c,.g-mm .d{grid-column:span 6}}
 .lang{font-family:var(--mono);font-size:12px!important;letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;border-radius:999px}
 /* galleries */
 .gallery{display:grid;gap:16px;margin:48px auto 0;max-width:960px;align-items:start}
@@ -324,6 +326,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
       <a href="#esenzia" data-img="img/esenzia-concept.jpg"><span class="iname">Esenzia Club</span><span class="idesc">Campaña digital y landing con captación automática de leads</span><span class="iyear">2026</span></a>
       <a href="#brio" data-img="img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Análisis de datos y plan de medios para un ecommerce deportivo</span><span class="iyear">2026</span></a>
       <a href="#ad3ntro" data-img="img/ad3ntro/g11.jpg"><span class="iname">Ad3ntro</span><span class="idesc">Marca, naming y comunicación para un gimnasio boutique</span><span class="iyear">2026</span></a>
+      <a href="#memento" data-img="img/mm/decirte.jpg"><span class="iname">Memento Mori</span><span class="idesc">Campaña de concienciación sobre la atención y el móvil</span><span class="iyear">2026</span></a>
       <a href="#observatorio" data-img="img/obs/mat-01.jpg"><span class="iname">Observatorio</span><span class="idesc">Identidad, redes y web contra la desinformación</span><span class="iyear">2026</span></a>
       <a href="#ffacsa" data-img="img/ffacsa/p-fuerza.jpg"><span class="iname">FFACSA Albañiles</span><span class="idesc">Campaña que homenajea al albañil guatemalteco</span><span class="iyear">2026</span></a>
       <a href="#offf" data-img="img/offf-logo.jpg"><span class="iname">OFFF Sevilla ’26</span><span class="idesc">Identidad visual para un festival de creatividad digital</span><span class="iyear">2025/26</span></a>
@@ -503,6 +506,50 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
           <figure><img src="img/ad3ntro/m22.jpg" alt="Tabla de antes y después: lo que diría cualquier gimnasio frente a lo que dice Ad3ntro" loading="lazy"><figcaption>Antes y después</figcaption></figure>
           <figure><img src="img/ad3ntro/m25.jpg" alt="Pieza exterior «En la calle, menos es más» sobre la vista aérea del gimnasio" loading="lazy"><figcaption>Reglas para exterior</figcaption></figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMENTO -->
+  <section class="case" id="memento">
+    <div class="wrap">
+      <div class="case-head">
+        <div class="shape" aria-hidden="true"></div>
+        <div>
+          <p class="label">Campaña de concienciación · Concepto, copy y diseño</p>
+          <h2>Memento Mori</h2>
+          <p class="kicker">Una campaña sobre la atención para jóvenes que viven pegados al móvil. Ni miedo ni positividad tóxica: un recordatorio de que hoy todavía es tuyo.</p>
+        </div>
+      </div>
+      <div class="posters">
+        <img style="flex:1" src="img/mm/verla.jpg" alt="Cartel «Hoy voy a verla con mis propios ojos»: multitud fotografiando la Mona Lisa con el móvil" loading="lazy">
+        <img style="flex:1" src="img/mm/decirte.jpg" alt="Cartel «Hoy voy a decirte otra vez te quiero»: abrazo entre un hombre y una mujer mayor en blanco y negro" loading="lazy">
+        <img style="flex:1" src="img/mm/perder.jpg" alt="Cartel «Hoy voy a perder la noción del tiempo»: pareja bailando de noche en una calle iluminada" loading="lazy">
+      </div>
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Tema</dt><dd>La atención y el uso del móvil</dd></div>
+          <div><dt class="label">Público</dt><dd>Jóvenes de 18 a 25 años</dd></div>
+          <div><dt class="label">Piezas</dt><dd>Serie de cinco carteles y adaptaciones a exterior</dd></div>
+          <div><dt class="label">Mi rol</dt><dd>Concepto, copy y dirección de arte</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Contexto</h3>
+          <p>Tocamos el móvil 2.617 veces al día y tardamos 23 minutos en recuperar la atención después de cada interrupción. Las pantallas están diseñadas para que no las soltemos.</p>
+          <h3>Insight</h3>
+          <p class="quote">No es tu culpa. Pero sí es tu vida.</p>
+          <h3>Idea</h3>
+          <p>Memento mori: «Recuerda que vas a morir. Y que hoy no es ese día». La serie «Hoy voy a ___» convierte la idea en una pregunta para cada día, con momentos que solo se viven sin pantalla: verla con mis propios ojos, decirte otra vez te quiero, bailar en la cocina, saltar con mis amigos. Cada cartel cierra con la misma pregunta: «¿Y tú, qué vas a hacer hoy?».</p>
+        </div>
+      </div>
+
+      <div class="gallery g-mm">
+        <figure class="a"><img src="img/mm/bus.jpg" alt="Cartel «Decirte otra vez te quiero» en una marquesina de autobús" loading="lazy"><figcaption>Marquesina</figcaption></figure>
+        <figure class="b"><img src="img/mm/wall.jpg" alt="Cartel «Verla con mis propios ojos» enmarcado en una pared de hormigón" loading="lazy"><figcaption>Cartel en interior</figcaption></figure>
+        <figure class="c"><img src="img/mm/bailar.jpg" alt="Cartel «Hoy voy a bailar en la cocina»: pareja besándose en una cocina" loading="lazy"><figcaption>Bailar en la cocina</figcaption></figure>
+        <figure class="d"><img src="img/mm/saltar.jpg" alt="Cartel «Hoy voy a saltar con mis amigos»: grupo de chicos saltando al agua desde un muelle" loading="lazy"><figcaption>Saltar con mis amigos</figcaption></figure>
+        <figure class="a"><img src="img/mm/persona.jpg" alt="Ficha de la persona: Lucía, 20 años, estudiante de ADE en Sevilla que siente que vive en automático" loading="lazy"><figcaption>Persona: Lucía, 20</figcaption></figure>
       </div>
     </div>
   </section>
