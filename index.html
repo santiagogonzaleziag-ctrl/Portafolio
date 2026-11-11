@@ -169,6 +169,12 @@ section.case{--c:var(--accent);padding-block:88px 16px;scroll-margin-top:60px;po
 .index a[href="#brio"]{--c:var(--c-brio)}.index a[href="#memento"]{--c:var(--c-mm)}#memento{--c:var(--c-mm)}
 .g-mm{grid-template-columns:repeat(12,minmax(0,1fr))}.g-mm .a{grid-column:span 12}.g-mm .b{grid-column:span 6}.g-mm .c,.g-mm .d{grid-column:span 3}
 @media (max-width:860px){.g-mm .b{grid-column:span 12}.g-mm .c,.g-mm .d{grid-column:span 6}}
+.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:960px;margin:36px auto 0;border-top:1.5px solid var(--c);padding-top:18px}
+.tldr p{margin:0}.tldr .label{margin-bottom:6px;color:var(--c)}.tldr p:not(.label){font-size:15.5px;line-height:1.5}
+.more{max-width:960px;margin:28px auto 0}.more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--ink);transition:border-color .3s,background .3s}
+.more>summary::-webkit-details-marker{display:none}.more>summary::after{content:"+";font-size:15px;transition:transform .3s var(--ease)}.more[open]>summary::after{transform:rotate(45deg)}
+.more>summary:hover{border-color:var(--c)}.more[open]>summary{margin-bottom:8px}
+@media (max-width:860px){.tldr{grid-template-columns:minmax(0,1fr);gap:16px}}
 .lang{font-family:var(--mono);font-size:12px!important;letter-spacing:.06em;border:1px solid var(--line);padding:3px 8px;border-radius:999px}
 /* galleries */
 .gallery{display:grid;gap:16px;margin:48px auto 0;max-width:960px;align-items:start}
@@ -302,19 +308,20 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
       <h1><span class="ln"><span>Santiago</span></span><span class="ln"><span>González</span></span><span class="ln"><span class="thin">Portafolio</span></span></h1>
       <div class="hero-foot">
         <div>
-          <p class="lede">Publicidad, diseño y producto digital. Me muevo entre la estrategia, la dirección visual y las herramientas que hacen que una campaña funcione de verdad.</p>
+          <p class="lede">Marketing digital con base en datos y ejecución creativa. Pienso la estrategia, la mido y la llevo hasta la pieza final.</p>
           <div class="cta">
             <a class="btn primary" href="#proyectos">Ver proyectos ↓</a>
+            <a class="btn" href="cv/Santiago_Gonzalez_CV.pdf" target="_blank" rel="noopener">Descargar CV ↓</a>
             <a class="btn" href="https://www.linkedin.com/in/santiago-gonz%C3%A1lez-7a600423b/" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
         </div>
         <div class="disc" aria-label="Disciplinas">
-          <span class="chip">Campañas digitales</span>
+          <span class="chip">Estrategia digital</span>
           <span class="chip">Paid media</span>
-          <span class="chip">Identidad visual</span>
-          <span class="chip">Diseño web</span>
-          <span class="chip">Figma</span>
-          <span class="chip">Supabase</span>
+          <span class="chip">Analítica · GA4 · Tableau</span>
+          <span class="chip">Campañas creativas</span>
+          <span class="chip">Diseño</span>
+          <span class="chip">IA aplicada</span>
         </div>
       </div>
     </div>
@@ -324,7 +331,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
     <p class="label">Proyectos seleccionados</p>
     <div class="index">
       <a href="#esenzia" data-img="img/esenzia-concept.jpg"><span class="iname">Esenzia Club</span><span class="idesc">Campaña digital y landing con captación automática de leads</span><span class="iyear">2026</span></a>
-      <a href="#brio" data-img="img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Análisis de datos y plan de medios para un ecommerce deportivo</span><span class="iyear">2026</span></a>
+      <a href="#brio" data-img="img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Análisis de negocio y rentabilidad por canal de un ecommerce</span><span class="iyear">2026</span></a>
       <a href="#ad3ntro" data-img="img/ad3ntro/g11.jpg"><span class="iname">Ad3ntro</span><span class="idesc">Marca, naming y comunicación para un gimnasio boutique</span><span class="iyear">2026</span></a>
       <a href="#memento" data-img="img/mm/decirte.jpg"><span class="iname">Memento Mori</span><span class="idesc">Campaña de concienciación sobre la atención y el móvil</span><span class="iyear">2026</span></a>
       <a href="#observatorio" data-img="img/obs/mat-01.jpg"><span class="iname">Observatorio</span><span class="idesc">Identidad, redes y web contra la desinformación</span><span class="iyear">2026</span></a>
@@ -346,6 +353,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <a class="btn primary live" href="https://roof-slept-96159707.figma.site" target="_blank" rel="noopener">Ver la landing ↗</a>
       </div>
       <img class="hero-img" src="img/esenzia-banner.jpg" alt="Banner de Esenzia en la portada de El Mundo con el copy «No todo el mundo lo entiende. Quizás tú sí» y botón Compruébalo" width="1600" height="953">
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Posicionar una marca de streetwear sevillana entre jóvenes y captar leads en un mercado saturado.</p></div>
+        <div><p class="label">Qué hice</p><p>Estrategia de medios con KPIs por canal, el concepto «No es para ti», las piezas y una landing que funciona: base de datos, email automático y conversión medida en GA4.</p></div>
+        <div><p class="label">Resultado</p><p>Un sistema de captación completo, de la campaña al lead registrado.</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -396,6 +410,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure class="d"><img src="img/esenzia-story2.jpg" alt="Story de Instagram con el botón Descubre si es para ti" loading="lazy"><figcaption>Social Ads · Story</figcaption></figure>
         <figure class="e"><img src="img/esenzia-insight.jpg" alt="Modelo con jersey de rayas de Esenzia Club" loading="lazy"><figcaption>Dirección de arte</figcaption></figure>
       </div>
+      </details>
     </div>
   </section>
 
@@ -405,13 +420,20 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
       <div class="case-head">
         <div class="shape" aria-hidden="true"></div>
         <div>
-          <p class="label">Análisis de datos y planificación de medios · Proyecto personal</p>
+          <p class="label">Análisis de negocio y datos · Proyecto personal</p>
           <h2>Brío Sport</h2>
           <p class="kicker">Volumen vs. valor. Un ecommerce deportivo analizado de principio a fin: del dato sucio a un dashboard, un plan de medios y un brief creativo.</p>
         </div>
         <a class="btn primary live" href="https://public.tableau.com/app/profile/santiago.gonzalez.mendez/viz/BrioSport-Volumenvsvalor/Volumenvsvalor" target="_blank" rel="noopener">Ver dashboard ↗</a>
       </div>
       <img class="hero-img" src="img/brio/s1.jpg" alt="Portada del caso de estudio Brío Sport: «Volumen vs. valor», adquisición, conversión y retención en un ecommerce deportivo" width="1600" height="900">
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Saber si la inversión de un ecommerce deportivo está donde está el valor.</p></div>
+        <div><p class="label">Qué hice</p><p>Limpié seis tablas en Power Query, construí el dashboard en Tableau (CAC, margen, recompra) y cerré con un plan de medios y un brief.</p></div>
+        <div><p class="label">Resultado</p><p>Meta recibe el 43% de la inversión pero devuelve 2,9 € por euro, frente a 4,1 € en Google: propuesta de mover un 15–20% del presupuesto.</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -455,6 +477,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure><img src="img/brio/s23.jpg" alt="Insight del brief creativo: «No soy fiel a ninguna marca, sino al descuento»" loading="lazy"><figcaption>Insight del brief</figcaption></figure>
         <figure><img src="img/brio/s24.jpg" alt="Brief creativo: de compra puntual a cliente recurrente, con objetivo, audiencia, mensaje y KPI" loading="lazy"><figcaption>Brief creativo</figcaption></figure>
       </div>
+      </details>
     </div>
   </section>
 
@@ -470,6 +493,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         </div>
       </div>
       <video class="hero-img vid" src="img/ad3ntro/motion.mp4" poster="img/ad3ntro/poster.jpg" autoplay muted loop playsinline aria-label="Animación del logotipo de Ad3ntro"></video>
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Lanzar un gimnasio boutique para quien se siente intimidado en un gimnasio.</p></div>
+        <div><p class="label">Qué hice</p><p>Naming, logotipo animado, claim y manual de comunicación con tono de voz y sistema de zonas.</p></div>
+        <div><p class="label">Resultado</p><p>«Entra. Aquí dentro, sí.»: una marca que acaba con el «¿y ahora qué hago?».</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -507,6 +537,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
           <figure><img src="img/ad3ntro/m25.jpg" alt="Pieza exterior «En la calle, menos es más» sobre la vista aérea del gimnasio" loading="lazy"><figcaption>Reglas para exterior</figcaption></figure>
         </div>
       </div>
+      </details>
     </div>
   </section>
 
@@ -526,6 +557,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <img style="flex:1" src="img/mm/decirte.jpg" alt="Cartel «Hoy voy a decirte otra vez te quiero»: abrazo entre un hombre y una mujer mayor en blanco y negro" loading="lazy">
         <img style="flex:1" src="img/mm/perder.jpg" alt="Cartel «Hoy voy a perder la noción del tiempo»: pareja bailando de noche en una calle iluminada" loading="lazy">
       </div>
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Hablar a los jóvenes del uso del móvil sin sermonear.</p></div>
+        <div><p class="label">Qué hice</p><p>Insight, concepto, copy y una serie de cinco carteles con adaptaciones a exterior.</p></div>
+        <div><p class="label">Resultado</p><p>«Hoy voy a ___»: una plataforma que se amplía a cualquier momento vivido sin pantalla.</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -550,6 +588,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure class="c"><img src="img/mm/bailar.jpg" alt="Cartel «Hoy voy a bailar en la cocina»: pareja besándose en una cocina" loading="lazy"><figcaption>Bailar en la cocina</figcaption></figure>
         <figure class="d"><img src="img/mm/saltar.jpg" alt="Cartel «Hoy voy a saltar con mis amigos»: grupo de chicos saltando al agua desde un muelle" loading="lazy"><figcaption>Saltar con mis amigos</figcaption></figure>
       </div>
+      </details>
     </div>
   </section>
 
@@ -566,6 +605,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <a class="btn primary live" href="https://blimp-laud-09888806.figma.site" target="_blank" rel="noopener">Ver la web ↗</a>
       </div>
       <img class="hero-img" src="img/obs/mat-01.jpg" alt="Logotipo del Observatorio de Narrativas Digitales construido con formas geométricas en naranja, azul y lima sobre fondo oscuro" width="1600" height="900">
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Enseñar a los jóvenes a cuestionar lo que ven en redes.</p></div>
+        <div><p class="label">Qué hice</p><p>Identidad visual, carrusel y stories para Instagram y TikTok, y una web interactiva.</p></div>
+        <div><p class="label">Resultado</p><p>«No todo es lo que parece»: un sistema visual coherente y una web publicada.</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -675,6 +721,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <div><span class="t">Bien común</span><p>Redes que conectan para transformar</p></div>
       </div>
       </div>
+      </details>
     </div>
   </section>
 
@@ -694,6 +741,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <img style="flex:666" src="img/ffacsa/p-fuerza.jpg" alt="Cartel: «La fuerza que mueve al país», retrato de un albañil mirando hacia arriba" loading="lazy">
         <img style="flex:666" src="img/ffacsa/p-levantan.jpg" alt="Cartel: «Levantan confianza, progreso y sueños», retrato de un albañil mirando hacia arriba" loading="lazy">
       </div>
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Hablar a los albañiles, el público al que las grandes marcas no se dirigen.</p></div>
+        <div><p class="label">Qué hice</p><p>Insight, concepto, tres carteles y un banner para el programa FFACSA Albañiles.</p></div>
+        <div><p class="label">Resultado</p><p>Una campaña que trata al albañil como un héroe: «La fuerza que mueve al país».</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -715,6 +769,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
       <div class="gallery">
         <figure><img src="img/ffacsa/banner.jpg" alt="Banner horizontal: «Construir con esfuerzo el futuro de Guatemala» junto al retrato de un albañil" loading="lazy"><figcaption>Banner horizontal</figcaption></figure>
       </div>
+      </details>
     </div>
   </section>
 
@@ -730,6 +785,13 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         </div>
       </div>
       <video class="hero-img vid" src="img/offf/motion.mp4" poster="img/offf/poster.jpg" autoplay muted loop playsinline aria-label="Animación del logotipo OFFF: la cámara parte de la O y se aleja hasta mostrar el logo y «Sevilla ’26, Real Fábrica de Artillería»"></video>
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Crear la identidad de una edición de OFFF en un antiguo edificio militar de Sevilla.</p></div>
+        <div><p class="label">Qué hice</p><p>Logotipo, logo animado, sistema tipográfico y aplicaciones en cartelería y escenario.</p></div>
+        <div><p class="label">Resultado</p><p>Una identidad que une lo industrial (el stencil) con lo digital (el brillo rosa).</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
 
       <div class="body-grid">
         <dl class="spec">
@@ -752,6 +814,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure class="c"><img src="img/offf-poster.jpg" alt="Cartel cuadrado de OFFF Sevilla con el cartel de ponentes" loading="lazy"><figcaption>Cartel con ponentes</figcaption></figure>
         <figure class="d"><img src="img/offf-type.jpg" alt="Lámina tipográfica de Bespoke Stencil con alfabeto y logotipo" loading="lazy"><figcaption>Sistema tipográfico</figcaption></figure>
       </div>
+      </details>
     </div>
   </section>
 
@@ -801,6 +864,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
     <div class="foot-row">
       <button class="btn" id="copy" type="button">Copiar email</button>
       <a class="btn" href="https://www.linkedin.com/in/santiago-gonz%C3%A1lez-7a600423b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="cv/Santiago_Gonzalez_CV.pdf" target="_blank" rel="noopener">Descargar CV ↓</a>
       <span class="copied" id="copied" aria-live="polite"></span>
     </div>
     <div class="fine"><span>Santiago González · Sevilla</span><span>Proyectos académicos; las marcas citadas no son clientes.</span></div>
