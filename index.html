@@ -13,7 +13,7 @@
 :root{
   --paper:#0B0C10; --surface:#14161C; --raise:#1B1E26; --ink:#EEF0F5; --muted:#9BA1AE; --line:#272B35;
   --accent:#8E89FF; --accent-ink:#0B0C10;
-  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF; --c-mm:#FFE52B;
+  --c-esenzia:#FF3B4E; --c-ad3ntro:#FF6A1F; --c-obs:#C9E633; --c-ffacsa:#FFD21F; --c-offf:#FF4F8B; --c-brio:#4DA8FF; --c-mm:#FFE52B; --c-garmin:#2FD3A6;
   --display:"Archivo","Arial Narrow",Helvetica,Arial,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -166,7 +166,7 @@ section.case{--c:var(--accent);padding-block:88px 16px;scroll-margin-top:60px;po
 .stats .n small{font-size:.5em;font-weight:600;color:var(--muted);font-stretch:100%}
 .stats p{margin:0;font-size:14px;color:color-mix(in srgb,var(--ink) 85%,var(--muted));line-height:1.45}
 #brio{--c:var(--c-brio)}
-.index a[href="#brio"]{--c:var(--c-brio)}.index a[href="#memento"]{--c:var(--c-mm)}#memento{--c:var(--c-mm)}
+.index a[href="#brio"]{--c:var(--c-brio)}.index a[href="#memento"]{--c:var(--c-mm)}#memento{--c:var(--c-mm)}.index a[href="#garmin"]{--c:var(--c-garmin)}#garmin{--c:var(--c-garmin)}
 .g-mm{grid-template-columns:repeat(12,minmax(0,1fr))}.g-mm .a{grid-column:span 12}.g-mm .b{grid-column:span 6}.g-mm .c,.g-mm .d{grid-column:span 3}
 @media (max-width:860px){.g-mm .b{grid-column:span 12}.g-mm .c,.g-mm .d{grid-column:span 6}}
 .tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:960px;margin:36px auto 0;border-top:1.5px solid var(--c);padding-top:18px}
@@ -332,6 +332,7 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
     <div class="index">
       <a href="#esenzia" data-img="img/esenzia-concept.jpg"><span class="iname">Esenzia Club</span><span class="idesc">Campaña digital y landing con captación automática de leads</span><span class="iyear">2026</span></a>
       <a href="#brio" data-img="img/brio/s1.jpg"><span class="iname">Brío Sport</span><span class="idesc">Análisis de negocio y rentabilidad por canal de un ecommerce</span><span class="iyear">2026</span></a>
+      <a href="#garmin" data-img="img/garmin/hero.jpg"><span class="iname">Dashboard de entrenamiento</span><span class="idesc">Datos de Garmin automatizados en un panel web</span><span class="iyear">2026</span></a>
       <a href="#ad3ntro" data-img="img/ad3ntro/g11.jpg"><span class="iname">Ad3ntro</span><span class="idesc">Marca, naming y comunicación para un gimnasio boutique</span><span class="iyear">2026</span></a>
       <a href="#memento" data-img="img/mm/decirte.jpg"><span class="iname">Memento Mori</span><span class="idesc">Campaña de concienciación sobre la atención y el móvil</span><span class="iyear">2026</span></a>
       <a href="#observatorio" data-img="img/obs/mat-01.jpg"><span class="iname">Observatorio</span><span class="idesc">Identidad, redes y web contra la desinformación</span><span class="iyear">2026</span></a>
@@ -477,6 +478,54 @@ img.rv.pre,video.rv.pre{transform:translateY(36px) scale(.97)}
         <figure><img src="img/brio/s23.jpg" alt="Insight del brief creativo: «No soy fiel a ninguna marca, sino al descuento»" loading="lazy"><figcaption>Insight del brief</figcaption></figure>
         <figure><img src="img/brio/s24.jpg" alt="Brief creativo: de compra puntual a cliente recurrente, con objetivo, audiencia, mensaje y KPI" loading="lazy"><figcaption>Brief creativo</figcaption></figure>
       </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- GARMIN -->
+  <section class="case" id="garmin">
+    <div class="wrap">
+      <div class="case-head">
+        <div class="shape" aria-hidden="true"></div>
+        <div>
+          <p class="label">Datos y automatización · Proyecto personal</p>
+          <h2>Dashboard de entrenamiento</h2>
+          <p class="kicker">Una web que descarga mis datos de Garmin cada hora y los convierte en un panel de rendimiento. Sin servidor y sin coste.</p>
+        </div>
+        <a class="btn primary live" href="https://santiagogonzaleziag-ctrl.github.io/Entrenamiento/" target="_blank" rel="noopener">Ver dashboard ↗</a>
+      </div>
+      <img class="hero-img" src="img/garmin/hero.jpg" alt="Cabecera del dashboard: estado de forma «Productivo» con forma, fatiga y frescura, y tarjetas de VO2 máx, variabilidad de la FC, FC en reposo, sueño y horas del año" width="1600" height="952" loading="lazy">
+
+      <div class="tldr">
+        <div><p class="label">Reto</p><p>Ver mi entrenamiento con más detalle que la app de Garmin, sin pagar nada.</p></div>
+        <div><p class="label">Qué hice</p><p>Un flujo automático: un script en Python descarga los datos de Garmin Connect, GitHub Actions lo ejecuta cada hora y GitHub Pages publica el panel.</p></div>
+        <div><p class="label">Resultado</p><p>Un dashboard que se actualiza solo, con carga de entrenamiento, recuperación, tendencias y proyecciones para mis carreras.</p></div>
+      </div>
+      <details class="more"><summary>Ver caso completo</summary>
+
+      <div class="body-grid">
+        <dl class="spec">
+          <div><dt class="label">Herramientas</dt><dd>Python, GitHub Actions, GitHub Pages, JavaScript</dd></div>
+          <div><dt class="label">Datos</dt><dd>Garmin Connect: actividades, frecuencia cardiaca, sueño y VFC</dd></div>
+          <div><dt class="label">Actualización</dt><dd>Automática, cada hora</dd></div>
+          <div><dt class="label">Coste</dt><dd>0 €</dd></div>
+        </dl>
+        <div class="prose">
+          <h3>Cómo funciona</h3>
+          <p>El reloj sincroniza con Garmin Connect. Cada hora, GitHub Actions ejecuta un script en Python que descarga los datos y genera un archivo JSON. GitHub Pages sirve la web, que lee ese archivo y dibuja los gráficos.</p>
+          <h3>Qué muestra</h3>
+          <p>Estado de forma (forma, fatiga y frescura), mapa anual de actividades, progreso del VO₂ máx y del ritmo, recuperación (sueño, VFC y FC en reposo), zonas de frecuencia cardiaca, tendencias de cuatro semanas y una cuenta atrás con proyección para cada carrera objetivo.</p>
+          <h3>Por qué está aquí</h3>
+          <p>Es el mismo trabajo que hay detrás de un buen reporting de marketing: conectar una fuente de datos, automatizar la actualización y convertir los números en decisiones que se entienden de un vistazo.</p>
+        </div>
+      </div>
+
+      <div class="gallery g-two">
+        <figure><img src="img/garmin/carga.jpg" alt="Gráfico de carga de entrenamiento: forma, fatiga y frescura a lo largo del año" loading="lazy"><figcaption>Carga de entrenamiento</figcaption></figure>
+        <figure><img src="img/garmin/progreso.jpg" alt="Progreso de forma: proyecciones de carrera, evolución del VO2 máx y del ritmo a 145 ppm" loading="lazy"><figcaption>Progreso y proyecciones</figcaption></figure>
+        <figure><img src="img/garmin/tend.jpg" alt="Tendencias de cuatro semanas, zonas de frecuencia cardiaca y tirada larga" loading="lazy"><figcaption>Tendencias y zonas de FC</figcaption></figure>
+      </div>
+      <p class="label" style="margin-top:14px">Capturas con datos de ejemplo · la web enlazada muestra mis datos reales</p>
       </details>
     </div>
   </section>
